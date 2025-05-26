@@ -20,6 +20,7 @@ pipeline {
                 sh "mvn -Dmaven.test.failure.ignore=true clean install"
 
             }
+        }
         stage('versioning') {
             steps {
 
