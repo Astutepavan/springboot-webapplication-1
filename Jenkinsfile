@@ -20,6 +20,13 @@ pipeline {
                 sh "mvn -Dmaven.test.failure.ignore=true clean install"
 
             }
+        stage('versioning') {
+            steps {
+
+                // Run Maven on a Unix agent.
+                sh "/usr/local/bin/aws s3 cp ./target/mavewebappdemo-2.0.0-SNAPSHOT.war s3://test-buck-00038938938"
+
+            }
         }
     }
 }
